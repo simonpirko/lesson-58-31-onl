@@ -1,0 +1,26 @@
+services:
+  app:
+    image: tms/lesson58
+    build:
+      context: .
+    restart: on-failure
+    container_name: app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    restart: on-failure
+    container_name: db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
