@@ -1,0 +1,10 @@
+POST http://104.248.23.145:8080/account
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "username": "test",
+  "password": "test"
+}
+
+###
